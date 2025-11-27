@@ -57,7 +57,10 @@ app.get('/:color', async (c) => {
       <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' preserveAspectRatio='none'>
         <style>{`:root{color-scheme:${color};}q::before{margin-inline-end:.1rem;}q::after{margin-inline-start:.1rem;}`}</style>
         <foreignObject x='0' y='0' width='100%' height='100%'>
-          <div style='font-size:1rem;line-height:1.5;' xmlns='http://www.w3.org/1999/xhtml'>
+          <div
+            style='block-size:100%;display:flex;align-items:center;justify-content:center;font-size:1rem;line-height:1.5;'
+            xmlns='http://www.w3.org/1999/xhtml'
+          >
             <figure>
               <blockquote style='font-family:"Times New Roman",Times,serif;font-size:1.5rem;font-style:italic;'>
                 <q>
