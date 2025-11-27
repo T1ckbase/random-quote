@@ -55,7 +55,9 @@ app.get('/:color', async (c) => {
     c.header('Cache-Control', 'max-age=0, no-cache, no-store, must-revalidate');
     return c.body((
       <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' preserveAspectRatio='none'>
-        <style>{`:root{color-scheme:${color};}q::before{margin-inline-end:.1rem;}q::after{margin-inline-start:.1rem;}`}</style>
+        <style>
+          {`:root{color-scheme:${color};color:${color === 'dark' ? '#fff' : '#000'};}q::before{margin-inline-end:.1rem;}q::after{margin-inline-start:.1rem;}`}
+        </style>
         <foreignObject x='0' y='0' width='100%' height='100%'>
           <div
             style='block-size:100%;display:flex;align-items:center;justify-content:center;font-size:1rem;line-height:1.5;'
