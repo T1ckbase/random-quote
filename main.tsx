@@ -66,7 +66,7 @@ app.get('/:color', async (c) => {
               </blockquote>
               <figcaption style='float:right;'>
                 <code>
-                  —— {model}
+                  — {model === 'openai/gpt-oss-20b' ? 'GPT OSS 20B' : 'GPT OSS 120B'}
                 </code>
               </figcaption>
             </figure>
