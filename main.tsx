@@ -43,9 +43,9 @@ const app = new Hono();
 
 app.use(logger());
 
-app.get('/:color', async (c) => {
-  const { color } = c.req.param();
-  if (color !== 'dark' && color !== 'light') return c.notFound();
+app.get('/:color-scheme', async (c) => {
+  const colorScheme = c.req.param('color-scheme');
+  if (colorScheme !== 'dark' && colorScheme !== 'light') return c.notFound();
 
   try {
     const model = Math.random() >= 0.5 ? 'openai/gpt-oss-20b' : 'openai/gpt-oss-120b';
@@ -56,7 +56,9 @@ app.get('/:color', async (c) => {
     return c.body((
       <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' preserveAspectRatio='none'>
         <style>
-          {`:root{color-scheme:${color};color:${color === 'dark' ? '#fff' : '#000'};}q::before{margin-inline-end:.1rem;}q::after{margin-inline-start:.1rem;}`}
+          {`:root{color-scheme:${colorScheme};color:${
+            colorScheme === 'dark' ? '#fff' : '#000'
+          };}q::before{margin-inline-end:.1rem;}q::after{margin-inline-start:.1rem;}`}
         </style>
         <foreignObject x='0' y='0' width='100%' height='100%'>
           <div
